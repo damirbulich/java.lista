@@ -1,7 +1,7 @@
 
 public class Lista <T>{
 	private Element<T> glava;
-	public int duljina;
+	private int duljina;
 //----------------------------------------
 	public Lista() {
 		glava = new Element<T>();
@@ -23,9 +23,9 @@ public class Lista <T>{
 		}
 		System.out.println();
 	}
-	public void izbrisi(T ele) {
+	public void izbrisi(int index) {
 		for (Element<T> i=glava; i.getNext()!=null;i=i.getNext()) {
-			if(i.getNext().getStorage().equals(ele)) {
+			if(index==0) {
 				if (i.getNext()==null) {
 					i.setNext(null);
 					duljina--;
@@ -35,6 +35,7 @@ public class Lista <T>{
 				duljina--;
 				return;
 			}
+			index--;
 		}
 		System.out.println("Ne postoji taj element!");
 	}
@@ -57,5 +58,20 @@ public class Lista <T>{
 		}
 		System.out.println("Ne postoji taj element!");
 		return null;
+	}
+	public T dohvati(int index) {
+		Element<T> temp;
+		for (Element<T> i=glava; i.getNext()!=null;i=i.getNext()) {
+			if(index==0) {
+				temp = i.getNext();
+				return temp.getStorage();
+			}
+			index--;
+		}
+		System.out.println("Ne postoji taj element!");
+		return null;
+	}
+	public int velicina(){
+		return duljina;
 	}
 }

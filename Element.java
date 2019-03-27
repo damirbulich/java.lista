@@ -18,22 +18,6 @@ public class Element<T> {
 		return result;
 	}
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Element<T> other = (Element<T>) obj;
-		if (storage == null) {
-			if (other.storage != null)
-				return false;
-		} else if (!storage.equals(other.storage))
-			return false;
-		return true;
-	}
-	@Override
 	public String toString() {
 		return storage.toString();
 	}
